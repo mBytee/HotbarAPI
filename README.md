@@ -20,25 +20,26 @@ repositories {
 }
 
 dependencies {
-    implementation "com.ricodev:SpigotUtils:1.0.0"
+    implementation "com.mbyte:SpigotUtils:1.0.0"
 }
 ```
 Using Maven:
 
 ```xml
+
 <repositories>
-  <repository>
-  <id>Codenix Repo-public-repo</id>
-  <name>Codenix Repository</name>
-  <url>https://maven.codenix.cc/public-repo</url>
-  </repository>
+    <repository>
+        <id>Codenix Repo-public-repo</id>
+        <name>Codenix Repository</name>
+        <url>https://maven.codenix.cc/public-repo</url>
+    </repository>
 </repositories>
 
 <dependencies>
-  <dependency>
-  <groupId>com.ricodev</groupId>
-  <artifactId>SpigotUtils</artifactId>
-  <version>1.0.0</version>
+<dependency>
+    <groupId>com.mbyte</groupId>
+    <artifactId>SpigotUtils</artifactId>
+    <version>1.0.0</version>
 </dependency>
 </dependencies>
 ```
@@ -47,7 +48,7 @@ Using Maven:
 ## Getting Started
 
 ### Setup in your plugin
-In your main plugin class `onEnable`, initialize the handlers you plan to use.
+In your main plugin class `onEnable`, initialize the handlers.
 
 ```java
 public class YourPlugin extends JavaPlugin {
@@ -68,7 +69,6 @@ public class YourPlugin extends JavaPlugin {
 }
 ```
 
-
 ### Hotbar Items API
 Example Usage:
 ```java
@@ -86,6 +86,21 @@ public class SpawnItem extends MItem<YourPlugin> {
     @Override
     public void onRightClick(PlayerInteractEvent event) {
         event.getPlayer().teleport(event.getPlayer().getWorld().getSpawnLocation());
+    }
+    
+    @Override
+    public void onLeftClick(PlayerInteractEvent event) {
+        //Your logic here
+    }
+
+    @Override
+    public void onRightClick(PlayerInteractEvent event) {
+        //Your logic here
+    }
+    
+    @Override
+    public void onInventoryClick(InventoryClickEvent event) {
+        //Your logic here
     }
 }
 ```

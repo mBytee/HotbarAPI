@@ -4,7 +4,7 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.ricodev'
+group = 'com.mbyte'
 version = '1.0.0'
 
 repositories {
@@ -28,7 +28,7 @@ dependencies {
 
 shadowJar {
     archiveClassifier.set('')
-    relocate "de.tr7zw.changeme.nbtapi", "${project.group}.nbtapi"
+    relocate "de.tr7zw.nbtapi", "${project.group}.nbtapi"
     relocate "org.reflections", "${project.group}.reflections"
 }
 

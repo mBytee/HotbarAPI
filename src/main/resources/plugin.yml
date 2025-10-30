@@ -1,4 +1,4 @@
 name: SpigotUtils
 version: '${version}'
-main: com.ricodev.spigotutils.SpigotUtil
+main: com.mbyte.spigotutils.SpigotUtil
 api-version: '1.13'
