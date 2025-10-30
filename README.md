@@ -16,7 +16,7 @@ Using Gradle:
 ```gradle
 repositories {
     mavenCentral()
-    maven("https://repo.codemc.io/repository/maven-public/")
+    maven("https://maven.codenix.cc/public-repo")
 }
 
 dependencies {
