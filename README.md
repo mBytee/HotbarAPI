@@ -36,11 +36,11 @@ Using Maven:
 </repositories>
 
 <dependencies>
-<dependency>
+  <dependency>
     <groupId>com.mbyte</groupId>
     <artifactId>SpigotUtils</artifactId>
     <version>1.0.0</version>
-</dependency>
+  </dependency>
 </dependencies>
 ```
 
