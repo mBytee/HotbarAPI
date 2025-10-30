@@ -1,0 +1,76 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'maven-publish'
+}
+
+group = 'com.ricodev'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        name = "CodeMC"
+        url = uri("https://repo.codemc.io/repository/maven-public/")
+    }
+}
+
+dependencies {
+    compileOnly "org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT"
+    implementation "de.tr7zw:item-nbt-api-plugin:2.15.3"
+    implementation "org.reflections:reflections:0.10.2"
+    implementation("org.mongodb:mongo-java-driver:3.12.12")
+
+    compileOnly "org.projectlombok:lombok:1.18.42"
+    annotationProcessor "org.projectlombok:lombok:1.18.42"
+}
+
+shadowJar {
+    archiveClassifier.set('')
+    relocate "de.tr7zw.changeme.nbtapi", "${project.group}.nbtapi"
+    relocate "org.reflections", "${project.group}.reflections"
+}
+
+java {
+    withSourcesJar()
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "codenixPublic"
+            url = uri("https://maven.codenix.cc/public-repo")
+            credentials(PasswordCredentials)
+            authentication {
+                create("basic", BasicAuthentication)
+            }
+        }
+    }
+
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = project.group
+            artifactId = project.name
+            version = project.version
+            artifact shadowJar
+            artifact sourcesJar {
+                archiveClassifier.set('sources')
+            }
+        }
+    }
+}
+
+
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset = 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}
