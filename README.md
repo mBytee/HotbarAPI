@@ -71,21 +71,19 @@ public class YourPlugin extends JavaPlugin {
 
 ### Hotbar Items API
 Example Usage:
+
 ```java
+import jdk.nashorn.internal.objects.annotations.Getter;
+
 public class SpawnItem extends MItem<YourPlugin> {
     public SpawnItem(YourPlugin plugin) {
         super(
-            plugin,
-            "spawn_item",                    // id/name
-            "&aSpawn",                       // display
-            Arrays.asList("&7Teleport to spawn"),
-            new ItemStack(Material.COMPASS)   // base item
+                plugin,
+                "spawn_item",                    // id/name
+                "&aSpawn",                       // display
+                Arrays.asList("&7Teleport to spawn"),
+                new ItemStack(Material.COMPASS)   // base item
         );
-    }
-
-    @Override
-    public void onRightClick(PlayerInteractEvent event) {
-        event.getPlayer().teleport(event.getPlayer().getWorld().getSpawnLocation());
     }
     
     @Override
@@ -97,7 +95,7 @@ public class SpawnItem extends MItem<YourPlugin> {
     public void onRightClick(PlayerInteractEvent event) {
         //Your logic here
     }
-    
+
     @Override
     public void onInventoryClick(InventoryClickEvent event) {
         //Your logic here
@@ -167,7 +165,6 @@ public class UsersMenu extends PaginatedMenu {
 `MongoConnection` simplifies connecting to MongoDB.
 
 ```java
-import java.util.UUID;
 
 MongoConnection mongo = new MongoConnection(yourPlugin, "mongodb://user:pass@host:27017/?authSource=admin");
 MongoDatabase db = mongo.getDatabase("yourdb");
