@@ -25,7 +25,7 @@ dependencies {
 ```
 Using Maven:
 
-```maven
+```xml
 <repositories>
   <repository>
   <id>Codenix Repo-public-repo</id>
