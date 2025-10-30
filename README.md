@@ -26,17 +26,21 @@ dependencies {
 Using Maven:
 
 ```maven
-<repository>
+<repositories>
+  <repository>
   <id>Codenix Repo-public-repo</id>
   <name>Codenix Repository</name>
   <url>https://maven.codenix.cc/public-repo</url>
-</repository>
+  </repository>
+</repositories>
 
-<dependency>
+<dependencies>
+  <dependency>
   <groupId>com.ricodev</groupId>
   <artifactId>SpigotUtils</artifactId>
   <version>1.0.0</version>
 </dependency>
+</dependencies>
 ```
 
 
